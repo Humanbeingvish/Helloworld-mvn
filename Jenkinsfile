@@ -11,9 +11,9 @@ pipeline{
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'github access', url: 'https://github.com/Humanbeingvish/Helloworld-mvn.git']]])
             }
         }
-        stage('build'){
+        stage('Package'){
             steps{
-               sh 'clean install'
+               sh 'mvn package'
             }
         }
     }
